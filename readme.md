@@ -3,7 +3,9 @@
 Edit massa_vars.sh put your path to massa-client directory
 ```
 cd $HOME/massa_scripts
-chmod +x *.sh
+cp template_massa_vars.sh massa_vars.sh
+
+# Insert actual values
 nano massa_vars.sh
 ```
 
@@ -12,10 +14,8 @@ nano massa_vars.sh
 ```
 cd $HOME/massa_scripts
 cp template_tgbot_vars.sh tgbot_vars.sh
-```
 
-Open and edit TG settings (put your bot API token and chat-ID of your TG profile)
-```
+# Open and edit TG settings (put your bot API token and chat-ID of your TG profile)
 nano tgbot_vars.sh
 ```
 
@@ -26,7 +26,7 @@ crontab -e
 ```
 Add line for checking status every 15 minutes:
 ```
-*/15 * * * * /path/to/massa_scripts/massa_rolls_notify.sh
+*/15 * * * * $HOME/massa_scripts/massa_rolls_notify.sh
 ```
 Check cron logs
 ```
