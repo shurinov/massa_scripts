@@ -9,5 +9,10 @@ curl -s \
  --data chat_id=${TG_CHAT_ID} \
  --data text="<b>${Title}</b>%0A${Message}" \
  --request POST https://api.telegram.org/bot${TG_TOKEN}/sendMessage
+ 
+for (( i=1; i <= "$#"; i++ )); do
+    echo "arg position: ${i}"
+    echo "arg value: ${!i}"
+done
 
 popd > /dev/null || exit 1

@@ -1,7 +1,11 @@
 #!/bin/bash
-pushd `dirname ${0}` >/dev/null || exit 1 
-rolls_act=$(./show_wallet_info.sh | grep "Active rolls:" | awk '{print $3}')
-#echo "Active rolls: ${rolls_act}"
+pushd `dirname ${0}` >/dev/null || exit 1
+wal_info=$(./show_wallet_info.sh)
+#rolls_act=$(./show_wallet_info.sh | grep "Active rolls:" | awk '{print $3}')
+echo -e ${wal_info} | grep "Rolls:"
+
+rolls_act=$(./show_wallet_info.sh | grep "Rolls:" | awk '{print $2}')
+echo "Active rolls: ${rolls_act}"
 msg_title="MASSA node"
 
 if [ -z $rolls_act ]
