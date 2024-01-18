@@ -9,10 +9,12 @@ then
 else
     roll_numb=$1
 fi
+
+logfile=${PWD}/buy_rolls.log
     
 
 cd ${MASSA_CLIENT_PATH}
 
-./massa-client -p ${MASSA_PASSWD} buy_rolls ${MASSA_ADDR} $roll_numb 0 >> ${PWD}/buy_rolls.log
+./massa-client -p ${MASSA_PASSWD} buy_rolls ${MASSA_ADDR} $roll_numb 0 >> ${logfile}
 
 popd > /dev/null || exit 1
